@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>All films</title>
+</head>
+<body>
+
+<table>
+    <thead>
+
+    </thead>
+    <tbody>
+        <tr th:each="wordpair :${workPairs}">
+            <td th:text="${wordpair.getWordENG().getName()}"></td>
+            <td th:text="${wordpair.getWordRUS().getName()}"></td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
