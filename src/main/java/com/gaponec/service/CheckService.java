@@ -20,6 +20,8 @@ public class CheckService {
 
     public CheckService(Dictionary dictionary){
         this.dictionary = dictionary;
+
+        statistics = new Statistics();
     }
 
     public CheckService(Dictionary dictionary, Statistics statistics){

@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
+    <script type="text/javascript" th:src="@{/js/script.js}"/>
     <title>All films</title>
 </head>
-<body>
+<body onload="getRandomWord()">
 
-<table>
+<p id="word"></p>
+<input id="answer" type="text"/> <br/>
+<button id="checkButton" type="button" onclick="checkAnswer()">Проверить</button><br/>
+<button id="nextButton" type="button" onclick="getRandomWord()">Next</button>
+<p id="errorField"></p>
+<!--<table>
     <thead>
 
     </thead>
@@ -16,7 +22,6 @@
             <td th:text="${wordpair.getWordRUS().getName()}"></td>
         </tr>
     </tbody>
-</table>
-
+</table>-->
 </body>
 </html>

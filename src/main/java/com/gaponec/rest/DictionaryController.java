@@ -9,10 +9,7 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -49,8 +46,30 @@ public class DictionaryController {
         model.addAttribute("workPairs",dictionary.getWordPairs());
         checkService = new CheckService(dictionary);
 
-        
-
         return "check";
+    }
+
+    @RequestMapping(value = "/getRandomWord", produces = "text/html;charset=UTF-8")
+    @ResponseBody
+    public String getWord(){
+        String randomWord = checkService.getRandomWord();
+
+        return randomWord;
+    }
+
+    @RequestMapping(value = "/checkWord", method = RequestMethod.GET, produces = "text/html;charset=UTF-8")
+    @ResponseBody
+    public String checkWord(@RequestParam(value = "answer") String answer){
+        if(checkService.checkAnswer(answer)){
+            return "right";
+        } else {
+            return "wrong. Right is " + checkService.getCurrentWordPair().getWordENG().getName();
+        }
+    }
+
+    @RequestMapping("/test")
+    @ResponseBody
+    public String test(){
+        return "Hello";
     }
 }
