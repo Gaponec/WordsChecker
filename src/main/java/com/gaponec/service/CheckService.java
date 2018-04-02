@@ -33,6 +33,11 @@ public class CheckService {
 
     public String getRandomWord(){
         int size = dictionary.getWordPairs().size();
+
+        if(size == 0){
+            return null;
+        }
+
         Random random = new Random();
 
         int randomNum = random.nextInt(size);

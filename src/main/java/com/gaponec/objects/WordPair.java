@@ -15,12 +15,9 @@ import java.io.Serializable;
 @Data
 @ToString
 public class WordPair implements Serializable {
-
     @Id @GeneratedValue
     private int id;
 
     private Word wordENG;
     private Word wordRUS;
-
-
 }

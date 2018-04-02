@@ -3,25 +3,47 @@
 <head lang="en">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/>
     <script type="text/javascript" th:src="@{/js/script.js}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
     <title>All films</title>
 </head>
 <body onload="getRandomWord()">
 
-<p id="word"></p>
-<input id="answer" type="text"/> <br/>
-<button id="checkButton" type="button" onclick="checkAnswer()">Проверить</button><br/>
-<button id="nextButton" type="button" onclick="getRandomWord()">Next</button>
-<p id="errorField"></p>
-<!--<table>
-    <thead>
+<div class="container" style="padding-top: 10%">
+    <div class="row justify-content-center">
 
-    </thead>
-    <tbody>
-        <tr th:each="wordpair :${workPairs}">
-            <td th:text="${wordpair.getWordENG().getName()}"></td>
-            <td th:text="${wordpair.getWordRUS().getName()}"></td>
-        </tr>
-    </tbody>
-</table>-->
+        <div class="form-group">
+            <p style="text-align: center" id="word"></p>
+            <label for="exampleInputEmail1"></label>
+            <input id="answer" type="text"/>
+            <button class="btn btn-primary" id="checkButton" type="button" onclick="checkAnswer()">Проверить</button>
+            <button class="btn btn-primary" id="nextButton" type="button" onclick="getRandomWord()">Next</button>
+            <p style="text-align: center" id="errorField"></p>
+        </div>
+
+
+    </div>
+
+    <div class="row justify-content-center" style="margin-top: 100px">
+        <div id="error-table" class="col-md-4 col-md-offset-4 " style="display: none">
+            <table  class="table">
+                <thead>
+                <tr>
+                    <td>Правильных ответов</td>
+                    <td>Не правильных ответов</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td id="rightAnswerNum"></td>
+                    <td id="wrongAnswerNum"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
 </body>
 </html>
